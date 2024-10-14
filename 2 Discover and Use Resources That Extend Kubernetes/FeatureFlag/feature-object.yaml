@@ -1,0 +1,7 @@
+apiVersion: example.com/v1
+kind: Feature
+metadata:
+  name: app-feature
+spec:
+  new_ui: true
+  beta: false  

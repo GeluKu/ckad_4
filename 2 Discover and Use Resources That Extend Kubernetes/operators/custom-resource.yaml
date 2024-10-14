@@ -1,0 +1,17 @@
+apiVersion: pluralsight.com/v1
+kind: Application
+metadata:
+  name: application
+spec:
+  frontend: 
+    image: nginx:latest
+    minReplicas: 1
+    maxReplicas: 4
+  backend:
+    image: python:latest
+    minReplicas: 2
+    maxReplicas: 4
+  database:
+    image: mysql:latest
+    minReplicas: 1
+    maxReplicas: 4
