@@ -3,6 +3,10 @@ kind: Pod
 metadata:
   name: cache-pod
 spec:
+  securityContext:
+    runAsUser: 4050
+    runAsGroup: 4050
+    fsGroupChangePolicy: "OnRootMismatch"
   containers:
   - name: busybox
     image: busybox:stable
@@ -10,6 +14,9 @@ spec:
     volumeMounts:
     - mountPath: /var/cache
       name: cache-volume
+    securityContext:
+      capabilities:
+        drop: ["NET_ADMIN", "SYS_TIME"]        
   volumes:
     - name: cache-volume
       emptyDir: {}
